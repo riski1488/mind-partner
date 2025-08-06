@@ -7,6 +7,7 @@ use App\Models\MentalHealthAssessment;
 use App\Models\JournalEntry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -79,5 +80,39 @@ class AdminController extends Controller
             ->paginate(15);
             
         return view('admin.journals.index', compact('journals'));
+    }
+
+    // Edit assessment (admin)
+    public function editAssessment(MentalHealthAssessment $assessment)
+    {
+        return view('admin.assessments.edit', compact('assessment'));
+    }
+
+    public function updateAssessment(Request $request, MentalHealthAssessment $assessment)
+    {
+        $validator = Validator::make($request->all(), [
+            'score' => 'nullable|integer|min:0|max:100',
+            'status' => 'required|in:pending,in_progress,completed',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        $data = [
+            'status' => $request->status,
+        ];
+        if ($request->filled('score')) {
+            $data['score'] = $request->score;
+        }
+        if ($request->status === 'completed' && !$assessment->completed_at) {
+            $data['completed_at'] = now();
+        }
+        $assessment->update($data);
+        return redirect()->route('admin.assessments')->with('success', 'Assessment berhasil diupdate!');
+    }
+
+    public function destroyAssessment(MentalHealthAssessment $assessment)
+    {
+        $assessment->delete();
+        return redirect()->route('admin.assessments')->with('success', 'Assessment berhasil dihapus!');
     }
 } 

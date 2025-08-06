@@ -39,5 +39,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/users', [AdminController::class, 'users'])->name('users');
         Route::get('/assessments', [AdminController::class, 'assessments'])->name('assessments');
         Route::get('/journals', [AdminController::class, 'journals'])->name('journals');
+
+        // Tambah route CRUD admin
+        Route::get('/assessments/{assessment}/edit', [AdminController::class, 'editAssessment'])->name('assessments.edit');
+        Route::put('/assessments/{assessment}', [AdminController::class, 'updateAssessment'])->name('assessments.update');
+        Route::delete('/assessments/{assessment}', [AdminController::class, 'destroyAssessment'])->name('assessments.destroy');
+
+        Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('users.edit');
+        Route::put('/users/{user}', [AdminController::class, 'updateUser'])->name('users.update');
+        Route::delete('/users/{user}', [AdminController::class, 'destroyUser'])->name('users.destroy');
+
+        Route::get('/journals/{journal}/edit', [AdminController::class, 'editJournal'])->name('journals.edit');
+        Route::put('/journals/{journal}', [AdminController::class, 'updateJournal'])->name('journals.update');
+        Route::delete('/journals/{journal}', [AdminController::class, 'destroyJournal'])->name('journals.destroy');
     });
 });
