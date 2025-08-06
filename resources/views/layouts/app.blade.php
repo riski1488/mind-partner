@@ -96,14 +96,13 @@
                 
                 <div class="flex items-center space-x-4">
                     @auth
-                        <div class="relative">
-                            <button class="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors">
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = !open" class="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors focus:outline-none">
                                 <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&color=7C3AED&background=EBF4FF' }}" alt="{{ auth()->user()->name }}">
                                 <span class="hidden md:block">{{ auth()->user()->name }}</span>
                                 <i class="fas fa-chevron-down text-sm"></i>
                             </button>
-                            
-                            <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+                            <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
                                 <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
                                 </a>
@@ -135,7 +134,7 @@
     <div class="flex">
         @auth
             <!-- Sidebar -->
-            <div class="sidebar w-64 min-h-screen hidden md:block">
+            <div class="sidebar w-64 min-h-screen hidden md:block flex flex-col justify-between">
                 <div class="p-6">
                     <div class="text-white text-center mb-8">
                         <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -171,6 +170,14 @@
                             </div>
                         @endif
                     </nav>
+                </div>
+                <div class="p-6">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="w-full flex items-center justify-center px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                        </button>
+                    </form>
                 </div>
             </div>
         @endauth
@@ -249,7 +256,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.3.5/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     
     <script>
         // Dropdown functionality
