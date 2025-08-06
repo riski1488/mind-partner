@@ -134,6 +134,12 @@
                 </div>
             </form>
             
+            <div class="mt-4 flex justify-center">
+                <a href="{{ route('home') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-purple-50 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Kembali ke Beranda
+                </a>
+            </div>
+
             <div class="mt-6">
                 <div class="relative">
                     <div class="absolute inset-0 flex items-center">
