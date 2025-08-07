@@ -27,6 +27,10 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    // Profile routes
+    Route::get('/profile', [AuthController::class, 'showProfile'])->name('profile');
+    Route::put('/profile', [AuthController::class, 'updateProfile'])->name('profile.update');
+    
     // Mental Health Assessments
     Route::resource('assessments', MentalHealthAssessmentController::class);
     
