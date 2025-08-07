@@ -131,12 +131,12 @@ Platform ini dirancang dengan pendekatan yang holistik, mengintegrasikan aspek p
 ### Data Admin Default
 Platform ini sudah dilengkapi dengan data admin default yang dapat digunakan untuk testing:
 
-**Email**: `admin@mindpartner.com`  
+**Email**: `admin123@gmail.com`  
 **Password**: `admin123`
 
 ### Langkah Login Admin
 1. Buka halaman login: `http://localhost:8000/login`
-2. Masukkan email: `admin@mindpartner.com`
+2. Masukkan email: `admin123@gmail.com`
 3. Masukkan password: `admin123`
 4. Klik tombol "Login"
 5. Setelah login berhasil, Anda akan diarahkan ke dashboard admin
