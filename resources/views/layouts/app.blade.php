@@ -78,6 +78,7 @@
         .mood-very-sad { background-color: #ef4444; }
         .mood-anxious { background-color: #8b5cf6; }
         .mood-stressed { background-color: #f97316; }
+        
     </style>
     
     @stack('styles')

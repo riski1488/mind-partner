@@ -68,7 +68,7 @@ class JournalEntryController extends Controller
             'mood_score' => 'nullable|integer|min:1|max:10',
             'mood_description' => 'nullable|in:very_happy,happy,neutral,sad,very_sad,anxious,stressed',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'is_private' => 'boolean',
+            'is_private' => 'nullable|in:on',
             'entry_date' => 'required|date|before_or_equal:today',
         ]);
 
@@ -128,7 +128,7 @@ class JournalEntryController extends Controller
             'mood_score' => 'nullable|integer|min:1|max:10',
             'mood_description' => 'nullable|in:very_happy,happy,neutral,sad,very_sad,anxious,stressed',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'is_private' => 'boolean',
+            'is_private' => 'nullable|in:on',
             'entry_date' => 'required|date|before_or_equal:today',
         ]);
 
