@@ -243,9 +243,9 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Kontak</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-envelope mr-2"></i>info@mindpartner.com</li>
+                        <li><i class="fas fa-envelope mr-2"></i>admin@mindpartner.com</li>
                         <li><i class="fas fa-phone mr-2"></i>+62 123 456 789</li>
-                        <li><i class="fas fa-map-marker-alt mr-2"></i>Jakarta, Indonesia</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Batu Merah, Kota Ambon</li>
                     </ul>
                 </div>
             </div>
