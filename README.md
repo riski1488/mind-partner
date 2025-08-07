@@ -1,66 +1,200 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧠 Mind Partner - Platform Kesehatan Mental
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📋 Tentang Mind Partner
 
-## About Laravel
+**Mind Partner** adalah platform web berbasis Laravel yang dirancang untuk membantu pengguna memantau dan mengelola kesehatan mental mereka. Platform ini menyediakan berbagai fitur yang mendukung perjalanan kesehatan mental pengguna melalui assessment mental, jurnal harian, dan sistem monitoring yang komprehensif.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 🎯 Latar Belakang Studi Kasus
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Di era modern yang penuh tekanan, kesehatan mental menjadi aspek penting yang sering terabaikan. Banyak orang mengalami stres, kecemasan, dan masalah mental lainnya tanpa memiliki sarana yang tepat untuk memantau dan mengelola kondisi mereka. Mind Partner hadir sebagai solusi digital yang memberikan:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Pemantauan Rutin**: Assessment berkala untuk mengukur kondisi mental
+- **Jurnal Reflektif**: Ruang untuk menulis dan merefleksikan perasaan harian
+- **Sistem Tracking**: Melacak perubahan mood dan kondisi mental dari waktu ke waktu
+- **Akses Mudah**: Platform yang user-friendly untuk semua kalangan
 
-## Learning Laravel
+Platform ini dirancang dengan pendekatan yang holistik, mengintegrasikan aspek psikologis dengan teknologi modern untuk memberikan pengalaman yang mendukung perjalanan kesehatan mental pengguna.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## ✨ Fitur Utama
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 👤 Fitur Pengguna (User)
+- **Dashboard Personal**: Tampilan ringkasan kondisi mental dan aktivitas terbaru
+- **Mental Health Assessment**: 
+  - Assessment berkala untuk mengukur kondisi mental
+  - Kategori assessment yang beragam (Stres, Kecemasan, Depresi, dll)
+  - Sistem scoring dan interpretasi hasil
+  - Filter berdasarkan kategori, status, dan pencarian
+- **Jurnal Harian**:
+  - Menulis jurnal dengan mood tracking
+  - Opsi privasi (publik/pribadi)
+  - Filter berdasarkan mood, privasi, tanggal, dan pencarian
+  - Sistem kategori jurnal
+- **Profil Pengguna**:
+  - Edit informasi personal (nama, email, telepon, tanggal lahir, gender)
+  - Ubah password dengan validasi keamanan
+  - Sistem logout otomatis jika email/password berubah
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔧 Fitur Admin
+- **Dashboard Admin**: Overview sistem dan statistik pengguna
+- **Kelola Pengguna**:
+  - Lihat daftar semua pengguna
+  - Edit informasi pengguna (nama, role)
+  - Hapus pengguna
+- **Kelola Assessment**:
+  - Lihat semua assessment dari pengguna
+  - Edit detail assessment
+  - Hapus assessment
+- **Kelola Jurnal**:
+  - Lihat semua jurnal dari pengguna
+  - Edit status privasi jurnal
+  - Hapus jurnal
 
-## Laravel Sponsors
+### 🔐 Sistem Autentikasi
+- **Registrasi**: Pendaftaran dengan validasi lengkap
+- **Login**: Sistem login dengan remember me
+- **Logout**: Logout aman dengan invalidasi session
+- **Role-based Access**: Pembedaan akses user dan admin
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Teknologi yang Digunakan
 
-### Premium Partners
+- **Backend**: Laravel 12 (PHP Framework)
+- **Frontend**: Blade Templates + Tailwind CSS
+- **Database**: MySQL
+- **Authentication**: Laravel's built-in authentication
+- **Icons**: FontAwesome
+- **Development**: XAMPP (Apache, MySQL, PHP)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 📦 Cara Instalasi
 
-## Contributing
+### Prerequisites
+- PHP 8.1 atau lebih tinggi
+- Composer
+- MySQL
+- XAMPP (atau server web lainnya)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Langkah-langkah Instalasi
 
-## Code of Conduct
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/riski1488/mind-partner.git
+   cd mind-partner
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. **Install Dependencies**
+   ```bash
+   composer install
+   ```
 
-## Security Vulnerabilities
+3. **Setup Environment**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. **Konfigurasi Database**
+   - Buat database MySQL baru
+   - Edit file `.env` dan sesuaikan konfigurasi database:
+     ```
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=mind_partner
+     DB_USERNAME=root
+     DB_PASSWORD=
+     ```
 
-## License
+5. **Jalankan Migration**
+   ```bash
+   php artisan migrate
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6. **Seed Database (Opsional)**
+   ```bash
+   php artisan db:seed
+   ```
+
+7. **Setup Storage**
+   ```bash
+   php artisan storage:link
+   ```
+
+8. **Jalankan Server**
+   ```bash
+   php artisan serve
+   ```
+
+9. **Akses Aplikasi**
+   - Buka browser dan akses: `http://localhost:8000`
+
+## 👨‍💼 Cara Login sebagai Admin
+
+### Data Admin Default
+Platform ini sudah dilengkapi dengan data admin default yang dapat digunakan untuk testing:
+
+**Email**: `admin@mindpartner.com`  
+**Password**: `admin123`
+
+### Langkah Login Admin
+1. Buka halaman login: `http://localhost:8000/login`
+2. Masukkan email: `admin@mindpartner.com`
+3. Masukkan password: `admin123`
+4. Klik tombol "Login"
+5. Setelah login berhasil, Anda akan diarahkan ke dashboard admin
+6. Di sidebar akan muncul menu "Admin" dengan sub-menu:
+   - Dashboard
+   - Kelola Pengguna
+   - Kelola Assessment
+   - Kelola Jurnal
+
+### Fitur Admin yang Tersedia
+- **Dashboard**: Overview statistik pengguna dan aktivitas
+- **Kelola Pengguna**: CRUD operasi untuk manajemen user
+- **Kelola Assessment**: Monitoring dan manajemen assessment mental
+- **Kelola Jurnal**: Pengelolaan jurnal harian pengguna
+
+## 📁 Struktur Proyek
+
+```
+mind-partner/
+├── app/
+│   ├── Http/Controllers/     # Controller untuk handling request
+│   ├── Models/              # Eloquent models
+│   └── Policies/            # Authorization policies
+├── database/
+│   ├── migrations/          # Database migrations
+│   └── seeders/            # Database seeders
+├── resources/
+│   └── views/              # Blade templates
+├── routes/
+│   └── web.php             # Web routes
+└── public/                 # Public assets
+```
+
+## 🔧 Konfigurasi Tambahan
+
+### Clear Cache (Jika Ada Masalah)
+```bash
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan route:clear
+```
+
+### Reset Database (Untuk Development)
+```bash
+php artisan migrate:fresh --seed
+```
+
+## 📞 Support
+
+Jika mengalami masalah atau memiliki pertanyaan, silakan:
+1. Buat issue di repository GitHub
+2. Hubungi developer melalui email yang tertera di profil
+
+## 📄 License
+
+Proyek ini dikembangkan untuk tujuan edukasi dan pengembangan aplikasi kesehatan mental.
+
+---
+
+**Mind Partner** - Mendampingi Perjalanan Kesehatan Mental Anda 🧠💙
