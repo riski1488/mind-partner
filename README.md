@@ -103,28 +103,38 @@ Platform ini dirancang dengan pendekatan yang holistik, mengintegrasikan aspek p
      DB_PASSWORD=
      ```
 
-5. **Jalankan Migration**
+5. **Import Database SQL**
+   - Pastikan XAMPP sudah berjalan (Apache dan MySQL)
+   - Buka phpMyAdmin: `http://localhost/phpmyadmin`
+   - Buat database baru dengan nama `mind_partner`
+   - Pilih database `mind_partner` yang baru dibuat
+   - Klik tab "Import"
+   - Klik "Choose File" dan pilih file: `mind-partner/database/mind_partner.sql`
+   - Klik "Go" untuk mengimport database
+   - Pastikan import berhasil tanpa error
+
+6. **Jalankan Migration**
    ```bash
    php artisan migrate
    ```
 
-6. **Seed Database (Opsional)**
+7. **Seed Database (Opsional)**
    ```bash
    php artisan db:seed
    ```
 
-7. **Setup Storage**
+8. **Setup Storage**
    ```bash
    php artisan storage:link
    ```
 
-8. **Jalankan Server**
+9. **Jalankan Server**
    ```bash
    php artisan serve
    ```
 
-9. **Akses Aplikasi**
-   - Buka browser dan akses: `http://localhost:8000`
+10. **Akses Aplikasi**
+    - Buka browser dan akses: `http://localhost:8000`
 
 ## 👨‍💼 Cara Login sebagai Admin
 
