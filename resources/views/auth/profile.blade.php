@@ -75,7 +75,7 @@
                     </label>
                     <input type="date" id="date_of_birth" name="date_of_birth"
                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
-                           value="{{ old('date_of_birth', $user->date_of_birth) }}">
+                           value="{{ old('date_of_birth', $user->date_of_birth ? $user->date_of_birth->format('Y-m-d') : '') }}">
                     @error('date_of_birth')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                     @enderror
@@ -150,7 +150,6 @@
                             <h3 class="text-sm font-medium text-blue-800">Informasi Penting</h3>
                             <div class="mt-2 text-sm text-blue-700">
                                 <ul class="list-disc list-inside space-y-1">
-                                    <li>Jika Anda hanya mengubah nama, Anda akan tetap login</li>
                                     <li>Jika Anda mengubah email atau password, Anda akan otomatis logout dan harus login ulang</li>
                                 </ul>
                             </div>

@@ -77,7 +77,7 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
-            'date_of_birth' => $request->date_of_birth,
+            'date_of_birth' => $request->date_of_birth ? $request->date_of_birth : null,
             'gender' => $request->gender,
             'role' => 'user',
         ]);
@@ -132,6 +132,12 @@ class AuthController extends Controller
             if (!Hash::check($request->current_password, $user->password)) {
                 return back()->withErrors(['current_password' => 'Password saat ini tidak sesuai.'])->withInput();
             }
+            
+            // Check if new password is same as current password
+            if (Hash::check($request->new_password, $user->password)) {
+                return back()->withErrors(['new_password' => 'Password baru tidak boleh sama dengan password lama.'])->withInput();
+            }
+            
             $passwordChanged = true;
         }
 
@@ -142,7 +148,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'date_of_birth' => $request->date_of_birth,
+            'date_of_birth' => $request->date_of_birth ? $request->date_of_birth : null,
             'gender' => $request->gender,
         ]);
 
