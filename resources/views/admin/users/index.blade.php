@@ -24,11 +24,11 @@
                     <td class="px-4 py-2">{{ $user->role }}</td>
                     <td class="px-4 py-2">{{ $user->created_at->format('d-m-Y') }}</td>
                     <td class="px-4 py-2 flex gap-2">
-                        <a href="{{ route('admin.users.edit', $user->id) }}" class="inline-block px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600">Edit</a>
+                        <a href="{{ route('admin.users.edit', $user->id) }}" class="px-3 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500 text-xs"><i class="fas fa-edit"></i> Edit</a>
                         <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus pengguna ini?')">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="inline-block px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600">Hapus</button>
+                            <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-xs"><i class="fas fa-trash"></i> Hapus</button>
                         </form>
                     </td>
                 </tr>
