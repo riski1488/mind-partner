@@ -185,16 +185,9 @@ php artisan route:clear
 php artisan migrate:fresh --seed
 ```
 
-## 📞 Support
 
-Jika mengalami masalah atau memiliki pertanyaan, silakan:
-1. Buat issue di repository GitHub
-2. Hubungi developer melalui email yang tertera di profil
-
-## 📄 License
+## 📄 Credit
 
 Proyek ini dikembangkan untuk tujuan edukasi dan pengembangan aplikasi kesehatan mental.
-
----
 
 **Mind Partner** - Mendampingi Perjalanan Kesehatan Mental Anda 🧠💙
