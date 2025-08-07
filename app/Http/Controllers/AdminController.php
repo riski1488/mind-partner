@@ -115,4 +115,38 @@ class AdminController extends Controller
         $assessment->delete();
         return redirect()->route('admin.assessments')->with('success', 'Assessment berhasil dihapus!');
     }
+
+    /**
+     * Tampilkan form edit user
+     */
+    public function editUser(User $user)
+    {
+        return view('admin.users.edit', compact('user'));
+    }
+
+    /**
+     * Update data user
+     */
+    public function updateUser(Request $request, User $user)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            'role' => 'required|in:user,admin',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        $user->update($request->only(['name', 'email', 'role']));
+        return redirect()->route('admin.users')->with('success', 'User berhasil diupdate!');
+    }
+
+    /**
+     * Hapus user
+     */
+    public function destroyUser(User $user)
+    {
+        $user->delete();
+        return redirect()->route('admin.users')->with('success', 'User berhasil dihapus!');
+    }
 } 
