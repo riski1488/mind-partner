@@ -22,13 +22,13 @@
                 <label for="mood" class="block text-sm font-medium text-gray-700">Mood</label>
                 <select id="mood" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                     <option value="">Semua Mood</option>
-                    <option value="very_happy">Sangat Bahagia</option>
-                    <option value="happy">Bahagia</option>
-                    <option value="neutral">Netral</option>
-                    <option value="sad">Sedih</option>
-                    <option value="very_sad">Sangat Sedih</option>
-                    <option value="anxious">Cemas</option>
-                    <option value="stressed">Stres</option>
+                    <option value="very_happy" {{ request('mood') == 'very_happy' ? 'selected' : '' }}>Sangat Bahagia</option>
+                    <option value="happy" {{ request('mood') == 'happy' ? 'selected' : '' }}>Bahagia</option>
+                    <option value="neutral" {{ request('mood') == 'neutral' ? 'selected' : '' }}>Netral</option>
+                    <option value="sad" {{ request('mood') == 'sad' ? 'selected' : '' }}>Sedih</option>
+                    <option value="very_sad" {{ request('mood') == 'very_sad' ? 'selected' : '' }}>Sangat Sedih</option>
+                    <option value="anxious" {{ request('mood') == 'anxious' ? 'selected' : '' }}>Cemas</option>
+                    <option value="stressed" {{ request('mood') == 'stressed' ? 'selected' : '' }}>Stres</option>
                 </select>
             </div>
             
@@ -36,20 +36,20 @@
                 <label for="privacy" class="block text-sm font-medium text-gray-700">Privasi</label>
                 <select id="privacy" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
                     <option value="">Semua</option>
-                    <option value="public">Publik</option>
-                    <option value="private">Pribadi</option>
+                    <option value="public" {{ request('privacy') == 'public' ? 'selected' : '' }}>Publik</option>
+                    <option value="private" {{ request('privacy') == 'private' ? 'selected' : '' }}>Pribadi</option>
                 </select>
             </div>
             
             <div>
                 <label for="date" class="block text-sm font-medium text-gray-700">Tanggal</label>
-                <input type="date" id="date" 
+                <input type="date" id="date" value="{{ request('date') }}" 
                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
             </div>
             
             <div>
                 <label for="search" class="block text-sm font-medium text-gray-700">Cari</label>
-                <input type="text" id="search" placeholder="Cari jurnal..." 
+                <input type="text" id="search" placeholder="Cari jurnal..." value="{{ request('search') }}" 
                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
             </div>
         </div>

@@ -22,11 +22,11 @@
                 <label for="category" class="block text-sm font-medium text-gray-700">Kategori</label>
                 <select id="category" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md">
                     <option value="">Semua Kategori</option>
-                    <option value="anxiety">Kecemasan</option>
-                    <option value="depression">Depresi</option>
-                    <option value="stress">Stres</option>
-                    <option value="mood">Suasana Hati</option>
-                    <option value="general">Umum</option>
+                    <option value="anxiety" {{ request('category') == 'anxiety' ? 'selected' : '' }}>Kecemasan</option>
+                    <option value="depression" {{ request('category') == 'depression' ? 'selected' : '' }}>Depresi</option>
+                    <option value="stress" {{ request('category') == 'stress' ? 'selected' : '' }}>Stres</option>
+                    <option value="mood" {{ request('category') == 'mood' ? 'selected' : '' }}>Suasana Hati</option>
+                    <option value="general" {{ request('category') == 'general' ? 'selected' : '' }}>Umum</option>
                 </select>
             </div>
             
@@ -34,15 +34,15 @@
                 <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                 <select id="status" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm rounded-md">
                     <option value="">Semua Status</option>
-                    <option value="pending">Menunggu</option>
-                    <option value="in_progress">Sedang Berlangsung</option>
-                    <option value="completed">Selesai</option>
+                    <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>Menunggu</option>
+                    <option value="in_progress" {{ request('status') == 'in_progress' ? 'selected' : '' }}>Sedang Berlangsung</option>
+                    <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Selesai</option>
                 </select>
             </div>
             
             <div>
                 <label for="search" class="block text-sm font-medium text-gray-700">Cari</label>
-                <input type="text" id="search" placeholder="Cari assessment..." 
+                <input type="text" id="search" placeholder="Cari assessment..." value="{{ request('search') }}" 
                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm">
             </div>
         </div>
