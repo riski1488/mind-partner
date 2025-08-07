@@ -14,6 +14,7 @@
                     <th class="px-4 py-2">Mood</th>
                     <th class="px-4 py-2">Tanggal</th>
                     <th class="px-4 py-2">Status</th>
+                    <th class="px-4 py-2">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,14 @@
                     <td class="px-4 py-2">{{ $journal->mood_description_label }}</td>
                     <td class="px-4 py-2">{{ $journal->entry_date->format('d-m-Y') }}</td>
                     <td class="px-4 py-2">{{ $journal->is_private ? 'Private' : 'Public' }}</td>
+                    <td class="px-4 py-2 flex space-x-2">
+                        <a href="{{ route('admin.journals.edit', $journal) }}" class="px-3 py-1 bg-yellow-400 text-white rounded hover:bg-yellow-500 text-xs"><i class="fas fa-edit"></i> Edit</a>
+                        <form action="{{ route('admin.journals.destroy', $journal) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus jurnal ini?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-xs"><i class="fas fa-trash"></i> Hapus</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

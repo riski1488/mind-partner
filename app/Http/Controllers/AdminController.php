@@ -149,4 +149,37 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->route('admin.users')->with('success', 'User berhasil dihapus!');
     }
+
+    /**
+     * Tampilkan form edit jurnal
+     */
+    public function editJournal(JournalEntry $journal)
+    {
+        return view('admin.journals.edit', compact('journal'));
+    }
+
+    /**
+     * Update status jurnal
+     */
+    public function updateJournal(Request $request, JournalEntry $journal)
+    {
+        $validator = Validator::make($request->all(), [
+            'is_private' => 'required|in:0,1',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        $journal->is_private = $request->is_private;
+        $journal->save();
+        return redirect()->route('admin.journals')->with('success', 'Status jurnal berhasil diupdate!');
+    }
+
+    /**
+     * Hapus jurnal
+     */
+    public function destroyJournal(JournalEntry $journal)
+    {
+        $journal->delete();
+        return redirect()->route('admin.journals')->with('success', 'Jurnal berhasil dihapus!');
+    }
 } 
