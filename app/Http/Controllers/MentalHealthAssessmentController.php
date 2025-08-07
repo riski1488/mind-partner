@@ -14,9 +14,30 @@ class MentalHealthAssessmentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $assessments = Auth::user()->assessments()->latest()->paginate(10);
+        $query = Auth::user()->assessments()->latest();
+
+        // Filter kategori
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+        // Filter status
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+        // Filter pencarian
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'like', "%$search%")
+                  ->orWhere('description', 'like', "%$search%")
+                  ->orWhere('category', 'like', "%$search%")
+                  ->orWhere('status', 'like', "%$search%")
+                ;
+            });
+        }
+        $assessments = $query->paginate(10)->appends($request->except('page'));
         return view('assessments.index', compact('assessments'));
     }
 

@@ -15,9 +15,37 @@ class JournalEntryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $journals = Auth::user()->journalEntries()->latest()->paginate(10);
+        $query = Auth::user()->journalEntries()->latest();
+
+        // Filter mood
+        if ($request->filled('mood')) {
+            $query->where('mood_description', $request->mood);
+        }
+        // Filter privacy
+        if ($request->filled('privacy')) {
+            if ($request->privacy === 'public') {
+                $query->where('is_private', false);
+            } elseif ($request->privacy === 'private') {
+                $query->where('is_private', true);
+            }
+        }
+        // Filter tanggal
+        if ($request->filled('date')) {
+            $query->whereDate('entry_date', $request->date);
+        }
+        // Filter pencarian
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'like', "%$search%")
+                  ->orWhere('content', 'like', "%$search%")
+                  ->orWhere('mood_description', 'like', "%$search%")
+                ;
+            });
+        }
+        $journals = $query->paginate(10)->appends($request->except('page'));
         return view('journals.index', compact('journals'));
     }
 
