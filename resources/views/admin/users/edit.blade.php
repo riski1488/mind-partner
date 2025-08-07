@@ -16,7 +16,7 @@
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold mb-2">Email</label>
-                <input type="email" value="{{ $user->email }}" class="w-full px-3 py-2 border rounded bg-gray-100" disabled>
+                <input type="email" name="email" value="{{ $user->email }}" class="w-full px-3 py-2 border rounded bg-gray-100" readonly>
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold mb-2">Role</label>
