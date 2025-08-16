@@ -173,4 +173,35 @@
         </form>
     </div>
 </div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		const moodSlider = document.getElementById('mood_score');
+		const moodDisplay = document.getElementById('mood_score_display');
+		if (moodSlider && moodDisplay) {
+			moodSlider.addEventListener('input', function() {
+				moodDisplay.textContent = this.value;
+			});
+		}
+
+		const imageInput = document.getElementById('image');
+		const imagePreview = document.getElementById('image_preview');
+		const previewImg = document.getElementById('preview_img');
+		if (imageInput && imagePreview && previewImg) {
+			imageInput.addEventListener('change', function() {
+				const file = this.files[0];
+				if (file) {
+					const reader = new FileReader();
+					reader.onload = function(e) {
+						previewImg.src = e.target.result;
+						imagePreview.classList.remove('hidden');
+					};
+					reader.readAsDataURL(file);
+				} else {
+					imagePreview.classList.add('hidden');
+				}
+			});
+		}
+	});
+</script>
 @endsection 
